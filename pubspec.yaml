@@ -36,6 +36,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   provider: ^6.0.3
   http: ^0.13.4
+  rakuten_ui:
+    git: https://github.com/amitsalunke01/reusable_ui_package_demo.git
 
 dev_dependencies:
   flutter_test:

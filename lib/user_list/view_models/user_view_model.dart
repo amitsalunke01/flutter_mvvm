@@ -10,6 +10,7 @@ class UsersViewModel extends ChangeNotifier {
   List<UsersModel> _usersListModel = [];
   UserError? _userError;
   UsersModel? _selectedUser;
+  UsersModel? _addingUser;
 
   UsersViewModel() {
     getUsers();
@@ -23,7 +24,10 @@ class UsersViewModel extends ChangeNotifier {
 
   UsersModel? get selectedUser => _selectedUser;
 
-  setLoading(bool loading) {
+   setAddingUser(UsersModel value) {
+    _addingUser = value;
+  }
+    setLoading(bool loading) {
     _loading = loading;
     notifyListeners();
   }
@@ -53,5 +57,15 @@ class UsersViewModel extends ChangeNotifier {
       setUsersError(userError);
     }
     setLoading(false);
+  }
+
+  addUsers(String? data1, String? data2) {
+    print('value recivied viewmodel a');
+    UsersModel usersModel = UsersModel(name: data1,email: data2);
+    setAddingUser(usersModel);
+      print('value recivied viewmodel b ${_addingUser?.name}');
+      _usersListModel.add(_addingUser!);
+      _addingUser = UsersModel();
+
   }
 }

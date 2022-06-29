@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mvvvm_demo/user_list/view_models/dialog_shared_view_model.dart';
 import 'package:mvvvm_demo/user_list/views/home_screen.dart';
 import 'package:mvvvm_demo/user_list/view_models/user_view_model.dart';
 import 'package:provider/provider.dart';
@@ -13,7 +14,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [ChangeNotifierProvider(create: (_) => UsersViewModel())],
+      providers: [
+        ChangeNotifierProvider(create: (_) => UsersViewModel()),
+        ChangeNotifierProvider(create: (_) => DialogViewModel())
+      ],
       child: MaterialApp(
           title: 'MVVM',
           debugShowCheckedModeBanner: false,
